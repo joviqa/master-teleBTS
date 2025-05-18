@@ -7,7 +7,7 @@ Guia y Archivos de configuracion para OpenBTS
 ```
 sudo apt update
 sudo apt upgrade
-sudo apt install git vim build-essential asterisk asterisk-mysql asterisk-config libuhd4.6.0 uhd-host libuhd-dev sqlitebrowser
+sudo apt install git build-essential asterisk asterisk-config libuhd4.6.0 uhd-host libuhd-dev sqlitebrowser
 ```
 
 2.- Descargar el directorio GIT
@@ -28,8 +28,7 @@ git checkout 5.1.0
 4.- Agregar archivos y compilar OpenBTS
 
 ```
-cp ../preinstall .
-chmod +x preinstall
+cp ../preinstall.sh .
 ./preinstall
 ./autogen.sh
 ./configure --with-uhd
