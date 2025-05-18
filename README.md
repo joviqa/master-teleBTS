@@ -7,7 +7,7 @@ Guia y Archivos de configuracion para OpenBTS
 ```
 sudo apt update
 sudo apt upgrade
-sudo apt install git build-essential asterisk asterisk-config libuhd4.6.0 uhd-host libuhd-dev sqlitebrowser
+sudo apt install git build-essential asterisk asterisk-config libuhd4.6.0 uhd-host libuhd-dev sqlitebrowser cdbs unixodbc unixodbc-dev libsrtp2-dev libsqliteodbc uuid-dev libjansson-dev
 ```
 
 2.- Descargar el directorio GIT
