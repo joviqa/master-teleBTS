@@ -45,7 +45,7 @@ sudo ldconfig
 6.- Instalar los archivos de configuracion
 
 ```
-sudo install_config
+sudo ./install_config
 ```
 
 Para iniciar los servicios manualmente ejecutar
