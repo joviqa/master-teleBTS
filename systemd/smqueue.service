@@ -3,7 +3,7 @@ Description=OpenBTS Store-and-Forward Short Message Service
 
 [Service]
 Type=simple
-ExecStart=/OpenBTS/smqueue
+ExecStart=/usr/local/sbin/smqueue
 
 [Install]
 WantedBy=multi-user.target
