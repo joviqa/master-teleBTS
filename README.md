@@ -33,7 +33,6 @@ cp ../preinstall.sh .
 ./autogen.sh
 ./configure --with-uhd
 make -j4
-
 ```
 
 5.- Instalar OpenBTS
@@ -41,6 +40,26 @@ make -j4
 ```
 sudo make install
 sudo ldconfig
+```
+
+6.- Instalar los archivos de configuracion
+
+```
+sudo install_config
+```
+
+Para iniciar los servicios manualmente ejecutar
+
+```
+systemctl start sipauthserve.service
+systemctl start smqueue.service
+systemctl start openbts.service
+```
+
+Para añadir Extenciones utilizar:
+
+```
+python3 nmcli.py sipauthserve subscribers create <nombre-extencion> [imsi] [msisdn] [ki]
 ```
 
 

@@ -1,0 +1,37 @@
+#!/bin/bash
+if [ $(id -u) -ne 0 ]
+  then echo Please run this script as root or using sudo!
+  exit
+fi
+## Config Installation Script ##
+
+# Crear backup Asterisk
+
+mkdir /etc/asterisk/backup
+mv /etc/asterisk/{asterisk.conf,extensions.conf,modules.conf,sip.conf,cdr_custom.conf,func_odbc.conf,res_odbc.conf,voicemail.conf} /etc/asterisk/backup/
+mv /etc/odbc.ini /etc/asterisk/backup/
+
+# Copiar configuracion Asterisk
+
+cp asterisk-config/config/*.conf /etc/asterisk/
+cp asterisk-config/odbc.ini /etc/
+cp -r asterisk-config/sounds/en /var/lib/asterisk/sounds/
+
+# Escribir permisos
+
+chown asterisk:asterisk /etc/asterisk/*.conf
+chmod 0640 /etc/asterisk/*.conf
+
+chown -R asterisk:asterisk /var/lib/asterisk/sounds/en
+
+# Instalar servicios Systemd
+
+cp systemd/*.service /usr/lib/systemd/system/
+
+systemctl enable openbts.service
+systemctl enable sipauthserve.service
+systemctl enable smqueue.service
+
+# Reiniciar Asterisk
+
+systemctl restart asterisk.service
