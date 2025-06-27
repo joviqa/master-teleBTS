@@ -3,6 +3,7 @@ Description=OpenBTS
 
 [Service]
 Type=simple
+User=root
 ExecStart=/OpenBTS/OpenBTS
 WorkingDirectory=/OpenBTS
 
